@@ -35,6 +35,13 @@ export default function CategoryItem({ categories, nominees }) {
                             >
                               {nominee.user.name}
                             </h1>
+                            <form className='flex justify-center'>
+                              <input
+                                type='submit'
+                                value='Vote'
+                                className='bg-secondary p-3 rounded-2xl text-primary w-9/12 mt-3 cursor-pointer hover:bg-white hover:text-primary'
+                              />
+                            </form>
                           </div>
                         </div>
                       )}

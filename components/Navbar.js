@@ -67,9 +67,9 @@ export default function Navbar() {
                   Events
                 </a>
               </Link>
-              <Link href='/register'>
+              <Link href='/account/login'>
                 <a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-secondary hover:text-primary'>
-                  Sign Up
+                  Login
                 </a>
               </Link>
             </div>

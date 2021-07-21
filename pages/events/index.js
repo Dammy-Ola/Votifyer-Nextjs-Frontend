@@ -25,10 +25,10 @@ export default function EventsPage({ events }) {
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps({ req }) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/events`)
   const events = await res.json()
-  console.log(events)
+  console.log(req.headers.cookie)
 
   if (!events) {
     return {
@@ -38,6 +38,6 @@ export async function getStaticProps() {
 
   return {
     props: { events }, // will be passed to the page component as props
-    revalidate: 1,
+    // revalidate: 1,
   }
 }

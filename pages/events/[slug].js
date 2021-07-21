@@ -1,8 +1,29 @@
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
+import { useDispatch, useSelector } from 'react-redux'
 import CategoryItem from '../../components/CategoryItem'
 import Layout from '../../components/Layout'
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 export default function SingleEventPage({ event, categories, nominees }) {
-  console.log(nominees)
+  const dispatch = useDispatch()
+  // Bringing our auth user from redux store
+  const userLogin = useSelector((state) => state.userLogin)
+  const { loading, error, authUser } = userLogin
+
+  const router = useRouter()
+
+  const notAuthredirect = '/account/login'
+
+  useEffect(() => {
+    if (!authUser) {
+      error && toast.error(error)
+      router.push(notAuthredirect)
+    } else {
+    }
+  }, [router, authUser, notAuthredirect])
+
   return (
     <Layout>
       <div className='container mt-10'>
