@@ -29,7 +29,7 @@ export default function OrganizationsPage({ organizations }) {
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_URL}/organizations`
   )
@@ -44,6 +44,5 @@ export async function getStaticProps() {
 
   return {
     props: { organizations }, // will be passed to the page component as props
-    revalidate: 1,
   }
 }
