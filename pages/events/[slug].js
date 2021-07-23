@@ -112,8 +112,8 @@ export async function getServerSideProps({ query: { slug } }) {
   return {
     props: {
       event: events[0],
-      //       categories,
-      //       nominees,
+      categories,
+      nominees,
     },
   }
 }

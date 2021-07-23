@@ -25,10 +25,9 @@ export default function EventsPage({ events }) {
   )
 }
 
-export async function getServerSideProps({ req }) {
+export async function getServerSideProps() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/events`)
   const events = await res.json()
-  console.log(req.headers.cookie)
 
   if (!events) {
     return {
