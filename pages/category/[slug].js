@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import { useRouter } from 'next/router'
 import Layout from '../../components/Layout'
 import { useDispatch, useSelector } from 'react-redux'
@@ -74,11 +75,19 @@ export default function SingleCategoryPage({ category, nominees }) {
                 ) && (
                   <div className=''>
                     <div className='h-72 mb-3'>
-                      <img
-                        src='https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80'
-                        alt=''
-                        className='h-full w-9/12 mx-auto rounded-2xl'
-                      />
+                      {nominee.user.image.formats.medium.url ? (
+                        <Image
+                          src={nominee.user.image}
+                          width={100}
+                          height={200}
+                        />
+                      ) : (
+                        <img
+                          src='https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80'
+                          alt=''
+                          className='h-full w-9/12 mx-auto rounded-2xl'
+                        />
+                      )}
                     </div>
                     <div className=''>
                       <h1
