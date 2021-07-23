@@ -6,9 +6,9 @@ export default function OrganizationSinglePage({ events }) {
     <Layout>
       <div className='container mt-10'>
         <div className='mt-10'>
-          <h1 className='font-bold text-4xl text-center text-secondary'>
-            Awards Organize by {events[0].organization.name}
-          </h1>
+          {/* <h1 className='font-bold text-4xl text-center text-secondary'>
+            {events && `Awards Organize by ${events[0].organization.name}`}
+          </h1> */}
           <div className='mt-10'>
             <div className='grid grid-cols-1 lg:grid-cols-4 gap-4 mb-10'>
               {events &&
