@@ -12,25 +12,25 @@ export default function Home() {
               Organizing an event is difficult and stressful, but voting
               shouldn't be...
             </h1>
-            <div className='mt-20 lg:hidden'>
+            <div className='mt-20'>
               <Link href='/account/login'>
-                <a className='p-5 rounded-sm bg-secondary text-primary font-bold text-xl mr-10'>
-                  Sign In Today
+                <a className='py-5 px-14 rounded-sm bg-secondary text-primary font-bold text-xl mr-10'>
+                  Sign In
                 </a>
               </Link>
             </div>
-            <div className='mt-20'>
-              <Link href='/account/login'>
+            {/* <div className='mt-20'>
+              <Link href='/'>
                 <a className='p-5 rounded-sm bg-secondary text-primary font-bold text-xl mr-10'>
-                  Sign In Today
+                  Organize Voting
                 </a>
               </Link>
-              {/* <Link href='/'>
+              <Link href='/'>
                 <a className='p-5 rounded-sm border border-secondary text-white font-bold text-xl'>
                   Start Voting
                 </a>
-              </Link> */}
-            </div>
+              </Link>
+            </div> */}
           </div>
           <div className='hidden lg:block hero-element'>
             <img
