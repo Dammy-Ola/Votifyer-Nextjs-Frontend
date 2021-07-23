@@ -126,46 +126,66 @@ export default function SingleCategoryPage({ category, nominees }) {
   )
 }
 
-export async function getStaticPaths() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/categories`)
+// export async function getStaticPaths() {
+//   const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/categories`)
 
-  const categories = await res.json()
-  console.log(categories)
+//   const categories = await res.json()
+//   console.log(categories)
 
-  const paths = categories.map((category) => ({
-    params: { slug: category.slug },
-  }))
+//   const paths = categories.map((category) => ({
+//     params: { slug: category.slug },
+//   }))
 
-  return {
-    paths,
+//   return {
+//     paths,
 
-    fallback: true, // See the "fallback" section below
-  }
-}
+//     fallback: true, // See the "fallback" section below
+//   }
+// }
 
-export async function getStaticProps({ params: { slug } }) {
+// export async function getStaticProps({ params: { slug } }) {
+//   const categoriesRes = await fetch(
+//     `${process.env.NEXT_PUBLIC_BACKEND_URL}/categories?slug=${slug}`
+//   )
+//   const categories = await categoriesRes.json()
+
+//   if (!categories) {
+//     return {
+//       notFound: true,
+//     }
+//   }
+
+//   const nomineesRes = await fetch(
+//     `${process.env.NEXT_PUBLIC_BACKEND_URL}/nominees`
+//   )
+//   const nominees = await nomineesRes.json()
+//   console.log(nominees)
+
+//   return {
+//     props: {
+//       category: categories[0],
+//       nominees,
+//     }, // will be passed to the page [component as props
+//     revalidate: 1,
+//   }
+// }
+
+export async function getServerSideProps({ query: { slug } }) {
   const categoriesRes = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_URL}/categories?slug=${slug}`
   )
   const categories = await categoriesRes.json()
 
-  if (!categories) {
-    return {
-      notFound: true,
-    }
-  }
-
   const nomineesRes = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_URL}/nominees`
   )
   const nominees = await nomineesRes.json()
-  console.log(nominees)
+  // console.log(nominees)
 
   return {
     props: {
       category: categories[0],
       nominees,
-    }, // will be passed to the page component as props
-    revalidate: 1,
+    },
   }
 }

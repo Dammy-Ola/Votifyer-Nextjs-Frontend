@@ -42,34 +42,61 @@ export default function SingleEventPage({ event, categories, nominees }) {
   )
 }
 
-export async function getStaticPaths() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/events`)
+// export async function getStaticPaths() {
+//   const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/events`)
 
-  const events = await res.json()
+//   const events = await res.json()
 
-  const paths = events.map((event) => ({
-    params: { slug: event.slug },
-  }))
+//   const paths = events.map((event) => ({
+//     params: { slug: event.slug },
+//   }))
 
-  return {
-    paths,
+//   return {
+//     paths,
 
-    fallback: true, // See the "fallback" section below
-  }
-}
+//     fallback: true, // See the "fallback" section below
+//   }
+// }
 
-export async function getStaticProps({ params: { slug } }) {
+// export async function getStaticProps({ params: { slug } }) {
+//   const eventsRes = await fetch(
+//     `${process.env.NEXT_PUBLIC_BACKEND_URL}/events?slug=${slug}`
+//   )
+//   const events = await eventsRes.json()
+//   // console.log(events)
+
+//   if (!events) {
+//     return {
+//       notFound: true,
+//     }
+//   }
+
+//   const categoriesRes = await fetch(
+//     `${process.env.NEXT_PUBLIC_BACKEND_URL}/categories?_sort=name:ASC&event.slug=${slug}`
+//   )
+//   const categories = await categoriesRes.json()
+
+//   const nomineesRes = await fetch(
+//     `${process.env.NEXT_PUBLIC_BACKEND_URL}/nominees`
+//   )
+//   const nominees = await nomineesRes.json()
+//   console.log(nominees)
+
+//   return {
+//     props: {
+//       event: events[0],
+//       categories,
+//       nominees,
+//     }, // will be passed to the page component as props
+//     revalidate: 1,
+//   }
+// }
+
+export async function getServerSideProps({ query: { slug } }) {
   const eventsRes = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_URL}/events?slug=${slug}`
   )
   const events = await eventsRes.json()
-  // console.log(events)
-
-  if (!events) {
-    return {
-      notFound: true,
-    }
-  }
 
   const categoriesRes = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_URL}/categories?_sort=name:ASC&event.slug=${slug}`
@@ -85,9 +112,8 @@ export async function getStaticProps({ params: { slug } }) {
   return {
     props: {
       event: events[0],
-      categories,
-      nominees,
-    }, // will be passed to the page component as props
-    revalidate: 1,
+      //       categories,
+      //       nominees,
+    },
   }
 }
