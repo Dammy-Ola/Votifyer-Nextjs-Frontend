@@ -34,6 +34,7 @@ export default function login() {
   const onSubmitHandler = (e) => {
     e.preventDefault()
     dispatch(loginAction({ email, password }))
+    router.push(redirect)
   }
 
   return (

@@ -2,9 +2,11 @@ import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { userLoginReducer } from './reducers/authReducers'
+import { userVoteReducer } from './reducers/voteReducers'
 
 const reducer = combineReducers({
   userLogin: userLoginReducer,
+  userVote: userVoteReducer,
 })
 
 const authUserFromStorage =

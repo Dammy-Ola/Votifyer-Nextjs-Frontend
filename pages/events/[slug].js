@@ -72,7 +72,7 @@ export async function getStaticProps({ params: { slug } }) {
   }
 
   const categoriesRes = await fetch(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/categories?event.slug=${slug}`
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/categories?_sort=name:ASC&event.slug=${slug}`
   )
   const categories = await categoriesRes.json()
 
