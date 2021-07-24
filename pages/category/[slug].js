@@ -75,7 +75,7 @@ export default function SingleCategoryPage({ category, nominees }) {
                 ) && (
                   <div className=''>
                     <div className='h-72 mb-3'>
-                      {nominee.user.image.formats.medium.url ? (
+                      {nominee.user.image.url ? (
                         <Image
                           src={nominee.user.image}
                           width={100}
