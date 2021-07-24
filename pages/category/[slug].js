@@ -78,8 +78,9 @@ export default function SingleCategoryPage({ category, nominees }) {
                       {nominee.user.image ? (
                         <Image
                           src={nominee.user.image.url}
-                          width={100}
-                          height={200}
+                          width={250}
+                          height={350}
+                          className='h-full w-9/12 mx-auto rounded-2xl'
                         />
                       ) : (
                         <img
