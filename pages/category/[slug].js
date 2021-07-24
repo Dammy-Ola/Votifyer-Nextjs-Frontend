@@ -69,19 +69,21 @@ export default function SingleCategoryPage({ category, nominees }) {
         <div className='grid grid-cols-1 lg:grid-cols-4 gap-10 mb-10'>
           {nominees &&
             nominees.map((nominee) => (
-              <div className='' key={nominee.id}>
+              <div className='mb-5' key={nominee.id}>
                 {nominee.categories.some(
                   (nomCategory) => nomCategory.id === category.id
                 ) && (
                   <div className=''>
                     <div className='h-72 mb-3'>
                       {nominee.user.image ? (
-                        <Image
-                          src={nominee.user.image.url}
-                          width={250}
-                          height={350}
-                          className='h-full w-9/12 mx-auto rounded-2xl'
-                        />
+                        <div className='flex justify-center'>
+                          <Image
+                            src={nominee.user.image.url}
+                            width={250}
+                            height={300}
+                            className='h-full mx-auto w-9/12 rounded-2xl'
+                          />
+                        </div>
                       ) : (
                         <img
                           src='https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80'
@@ -90,17 +92,17 @@ export default function SingleCategoryPage({ category, nominees }) {
                         />
                       )}
                     </div>
-                    <div className=''>
+                    <div className='mt-3'>
                       <h1
                         key={nominee.id}
-                        className='text-center text-secondary text-lg'
+                        className='font-semibold text-center text-secondary text-lg'
                       >
                         {nominee.user.name}
                       </h1>
                     </div>
-                    <form onSubmit={onSubmitHandler}>
-                      <div className='my-2 flex flex-col'>
-                        <label htmlFor='email' className='font-semibold'>
+                    <form onSubmit={onSubmitHandler} className=''>
+                      <div className='flex flex-col'>
+                        <label htmlFor='email' className='text-center mb-2'>
                           {`Please type ${nominee.id} to vote for ${nominee.user.name}`}
                         </label>
                         <input
@@ -111,7 +113,7 @@ export default function SingleCategoryPage({ category, nominees }) {
                           id='nominee'
                           value={nomineeId}
                           onChange={(e) => setNomineeId(e.target.value)}
-                          className='p-2 rounded-md text-primary'
+                          className='p-3 rounded-md text-primary'
                         />
                       </div>
 

@@ -25,7 +25,7 @@ export default function CategoryItem({ categories, nominees }) {
       <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 mb-16'>
         {categories &&
           categories.map((category) => (
-            <div className='' key={category.id}>
+            <div className='mb-5' key={category.id}>
               <div className='bg-gray-100'>
                 <Link href={`/category/${category.slug}`}>
                   <a>
