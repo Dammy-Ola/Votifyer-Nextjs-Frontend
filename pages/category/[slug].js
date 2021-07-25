@@ -66,6 +66,9 @@ export default function SingleCategoryPage({ category, nominees }) {
         <h1 className='text-center font-bold text-2xl text-secondary mb-5'>
           {category.name}
         </h1>
+        <h1 className='text-center text-xl text-red-600 mb-5'>
+          Please scroll down if you are not seeing the nominees !!!
+        </h1>
         <div className='grid grid-cols-1 lg:grid-cols-4 gap-10 mb-10'>
           {nominees &&
             nominees.map((nominee) => (

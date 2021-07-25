@@ -6,6 +6,22 @@ export default function Layout({ title, keywords, description, children }) {
   return (
     <div>
       <Head>
+        {/* Global site tag (gtag.js) - Google Analytics */}
+        <script
+          async
+          src='https://www.googletagmanager.com/gtag/js?id=G-JGBBPRTPCY'
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'G-JGBBPRTPCY');
+ `,
+          }}
+        />
         <title>{title}</title>
         <meta name='description' content={description} />
         <meta name='keywords' content={keywords} />
