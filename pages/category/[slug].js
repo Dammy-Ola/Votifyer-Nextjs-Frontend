@@ -64,12 +64,13 @@ export default function SingleCategoryPage({ category, nominees }) {
       <div className='container mt-10 mb-60'>
         <ToastContainer />
         <h1 className='text-center font-bold text-2xl text-secondary mb-5'>
-          {category.name}
+          {/* {category.name} */}
+          Voting has ended
         </h1>
-        <h1 className='text-center text-xl text-red-600 mb-5'>
+        {/* <h1 className='text-center text-xl text-red-600 mb-5'>
           Please scroll down if you are not seeing the nominees !!!
-        </h1>
-        <div className='grid grid-cols-1 lg:grid-cols-4 gap-10 mb-10'>
+        </h1> */}
+        {/* <div className='grid grid-cols-1 lg:grid-cols-4 gap-10 mb-10'>
           {nominees &&
             nominees.map((nominee) => (
               <div className='mb-5' key={nominee.id}>
@@ -127,15 +128,12 @@ export default function SingleCategoryPage({ category, nominees }) {
                           nominee.id == nomineeId ? `block` : `hidden`
                         } `}
                       />
-                      {/* <button type='button' disabled>
-                        Vote
-                      </button> */}
                     </form>
                   </div>
                 )}
               </div>
             ))}
-        </div>
+        </div> */}
       </div>
     </Layout>
   )

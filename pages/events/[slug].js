@@ -30,13 +30,16 @@ export default function SingleEventPage({ event, categories, nominees }) {
         <h1 className='font-bold text-4xl text-center text-secondary'>
           Awards Categories
         </h1>
-        <div className='mt-10'>
+        <h1 className='font-bold text-4xl text-center text-secondary mt-3'>
+          Vote has ended
+        </h1>
+        {/* <div className='mt-10'>
           <div className=''>
             {event && (
               <CategoryItem categories={categories} nominees={nominees} />
             )}
           </div>
-        </div>
+        </div> */}
       </div>
     </Layout>
   )
