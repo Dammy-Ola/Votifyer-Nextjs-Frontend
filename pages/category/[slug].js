@@ -33,15 +33,15 @@ export default function SingleCategoryPage({ category, nominees }) {
       toast.error('You are not logged In')
       router.push(notAuthredirect)
     }
-    category.votes.some((vote) => {
-      if (vote.user === authUser.user.id) {
-        console.log('You have voted')
-        toast.error('You have already voted In this category')
-        router.push(redirect)
-      } else {
-        console.log('You have not voted')
-      }
-    })
+    // category.votes.some((vote) => {
+    //   if (vote.user === authUser.user.id) {
+    //     console.log('You have voted')
+    //     toast.error('You have already voted In this category')
+    //     router.push(redirect)
+    //   } else {
+    //     console.log('You have not voted')
+    //   }
+    // })
     // if (voted) {
     //   toast.success('You have already voted In this category')
     //   router.push(redirect)
